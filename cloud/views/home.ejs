@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>
+      parse-keyval
+    </title>
+    <style type="text/css">
+        body { font-family: Helvetica, Arial, sans-serif; }
+            div { width: 800px; height: 550px; margin: 40px auto; padding: 20px; border: 2px solid #5298fc; }
+            h1 { font-size: 30px; margin: 0; }
+            p { margin: 40px 0; }
+            em { font-family: monospace; }
+            a { color: #5298fc; text-decoration: none; }
+    </style>
+    <!-- yes I stole this from the default parse cloud hosting page. sue me. -->
+  </head>
+  <body>
+    <div>
+      <h1>
+        Jesse's Awesome Parse.com Key-Value Storage Platform
+      </h1>
+      <p>
+        <b>Store data:</b> <code><%= hostname %>/store?key1=value1&amp;key2=value2</code>
+      </p>
+      <p>
+        <b>Retrieve data:</b> <code><%= hostname %>/get</code><br>
+        <em>Returns a list of all data stored in this service.</em>
+        <br><b>URL parameters:</b><br>
+        &#12288;<b>limit<em>(optional)</em>:</b> Limit number of results. Defaults to 1000.<br>
+        &#12288;<b>skip<em>(optional)</em>:</b> Skip a given number of results. Useful if you have more than 1000 records. Defaults to 0.<br><br>
+        <b>NOTE:</b> If you have a very large amount of records that you only need to download once in a while, consider using the download option in the Parse UI.
+      </p>
+      <p>
+        <b>Count data:</b> <code><%= hostname %>/count</code><br>
+        <em>Returns a count of all records stored. Useful if you don't want to parse a long response from /get.</em>
+      </p>
+      <p>
+        <b>Delete data:</b> <code><%= hostname %>/delete?id=xWMyZ4YEGZ</code><br>
+        <em>Obviously, an object with that ID must exist.</em>
+      </p>
+      <dl>
+        <dt>
+          <b>Rate limit</b>
+        </dt>
+        <dd>
+          The rate limit on this service is 30 requests/second, enforced by the storage provider. If you exceed this rate, your requests will begin failing with error code 155.
+        </dd>
+      </dl>
+    </div>
+  </body>
+</html>
